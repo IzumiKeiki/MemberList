@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useAuthStore } from '../stores/authStore'
 import { useRouter } from 'vue-router'
+import type { RouteLocationNormalized } from 'vue-router'
 
 const authStore = useAuthStore()
 const router = useRouter()
@@ -11,6 +12,20 @@ const submit = () => {
     router.replace('/home')
   }
 }
+
+const beforeRouteEnter = (
+  to: RouteLocationNormalized,
+  from: RouteLocationNormalized,
+  next: () => void
+) => {
+  if (to.path === '/home' && !authStore.confirm) {
+    router.push('/')
+  } else {
+    next()
+  }
+}
+
+router.beforeEach(beforeRouteEnter)
 </script>
 
 <template>

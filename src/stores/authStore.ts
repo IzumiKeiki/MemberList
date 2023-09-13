@@ -11,6 +11,7 @@ export const useAuthStore = defineStore('auth', {
     login() {
       if (this.id !== 'abc' || this.pass !== 'pass') {
         this.showError = true
+        this.confirm = false
         this.id = ''
         this.pass = ''
       } else {
