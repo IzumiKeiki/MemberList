@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LoginView > renders correctly 1`] = `
+"<div data-v-45f5edd7=\\"\\" class=\\"login\\">
+  <h1 data-v-45f5edd7=\\"\\">Login</h1>
+  <!--v-if-->
+  <form data-v-45f5edd7=\\"\\"><label data-v-45f5edd7=\\"\\" for=\\"id\\">ID :</label><input data-v-45f5edd7=\\"\\" id=\\"id\\" type=\\"text\\"><label data-v-45f5edd7=\\"\\" for=\\"pass\\">Password :</label><input data-v-45f5edd7=\\"\\" id=\\"pass\\" type=\\"password\\"><button data-v-45f5edd7=\\"\\" type=\\"submit\\">Confirm</button></form>
+</div>"
+`;
