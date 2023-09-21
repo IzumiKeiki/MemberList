@@ -14,7 +14,7 @@ describe('LoginView', () => {
     expect(authStore.confirm).toBe(false)
   })
 
-  it('has login unsuccess', () => {
+  it('should have an unsuccessful login', () => {
     const authStore = useAuthStore()
     authStore.id = 'id'
     authStore.pass = 'pass'
@@ -23,7 +23,7 @@ describe('LoginView', () => {
     expect(authStore.confirm).toBe(false)
   })
 
-  it('has login success', () => {
+  it('should have an successful login', () => {
     const authStore = useAuthStore()
     authStore.id = 'abc'
     authStore.pass = 'pass'

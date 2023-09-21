@@ -38,7 +38,7 @@ describe('LoginView', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('has title and button', () => {
+  it('has a title and a button', () => {
     const wrapper = mount(LoginView, {
       global: {
         plugins: [router]
@@ -48,7 +48,7 @@ describe('LoginView', () => {
     expect(wrapper.find('button').exists()).toBe(true)
   })
 
-  it('should show error message', async () => {
+  it('should show error message when the input is invalid', async () => {
     const wrapper = mount(LoginView, {
       global: {
         plugins: [router]

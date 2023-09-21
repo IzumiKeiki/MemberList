@@ -28,7 +28,7 @@ describe('LoginView', () => {
     setActivePinia(createPinia())
   })
 
-  it('should navigate to the homeview after login', async () => {
+  it('should navigate to the home view after login', async () => {
     const wrapper = mount(LoginView, {
       global: {
         plugins: [router]
