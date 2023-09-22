@@ -14,7 +14,7 @@ const dataStore = useDataStore()
         <div>
           <label for="name">Name</label>
           <input id="name" type="text" v-model="dataStore.newItem.name" required />
-          <label for="skill">skill</label>
+          <label for="skill">Skills</label>
           <input id="skill" type="text" v-model="dataStore.newItem.skills" />
           <label for="status">Status</label>
           <select id="status" v-model="dataStore.newItem.status">

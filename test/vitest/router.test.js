@@ -1,29 +1,11 @@
 import { mount } from '@vue/test-utils'
-import { createRouter, createWebHistory } from 'vue-router'
 import { beforeEach, describe, it, expect } from 'vitest'
-
-import LoginView from '../../src/views/LoginView.vue'
-import HomeView from '../../src/views/HomeView.vue'
-
 import { setActivePinia, createPinia } from 'pinia'
 
-describe('LoginView', () => {
-  const router = createRouter({
-    history: createWebHistory(),
-    routes: [
-      {
-        path: '/',
-        name: 'login',
-        component: LoginView
-      },
-      {
-        path: '/home',
-        name: 'home',
-        component: HomeView
-      }
-    ]
-  })
+import LoginView from '../../src/views/LoginView.vue'
+import router from '../../src/router'
 
+describe('LoginView', () => {
   beforeEach(() => {
     setActivePinia(createPinia())
   })
