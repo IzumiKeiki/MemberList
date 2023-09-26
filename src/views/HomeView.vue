@@ -1,7 +1,12 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { useDataStore } from '../stores/dataStore'
 
 const dataStore = useDataStore()
+
+onMounted(() => {
+  dataStore.fetchData()
+})
 </script>
 
 <template>
