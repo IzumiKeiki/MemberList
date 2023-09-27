@@ -12,10 +12,10 @@ describe('pinia.cy.ts', () => {
   })
 
   it('should have an unsuccessful login', () => {
-    cy.wrap(useAuthStore()).then((store) => {
+    cy.wrap(useAuthStore()).then(async (store) => {
       store.user = 'id'
       store.pass = 'pass'
-      store.login()
+      await store.login()
       expect(store.showError).to.eq(true)
       expect(store.confirm).to.eq(false)
     })

@@ -43,6 +43,7 @@ describe('LoginView', () => {
     userInput.setValue('user')
     passInput.setValue('pass')
     wrapper.find('form').trigger('submit.prevent')
+    await wrapper.vm.authStore.login()
     await wrapper.vm.$nextTick()
     console.log('ERROR After button click:', wrapper.vm.authStore.showError)
 

@@ -16,19 +16,19 @@ describe('Home page', () => {
     cy.get('table').should('contain', 'xyz')
   })
 
-  it('deletes an item from the list', () => {
-    cy.contains('tr', 'abc').within(() => {
-      cy.contains('button', 'Delete').click()
-    })
-    cy.get('table').should('not.contain', 'abc')
-  })
-
   it('edits an item in the list', () => {
-    cy.contains('tr', 'abc').within(() => {
+    cy.contains('tr', 'xyz').within(() => {
       cy.contains('button', 'Edit').click()
     })
     cy.get('#editskill').clear().type('vue')
     cy.contains('button', 'Save').click()
     cy.get('table').should('contain', 'vue')
+  })
+
+  it('deletes an item from the list', () => {
+    cy.contains('tr', 'xyz').within(() => {
+      cy.contains('button', 'Delete').click()
+    })
+    cy.get('table').should('not.contain', 'abc')
   })
 })

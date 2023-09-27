@@ -14,20 +14,20 @@ describe('LoginView', () => {
     expect(authStore.confirm).toBe(false)
   })
 
-  it('should have an unsuccessful login', () => {
+  it('should have an unsuccessful login', async () => {
     const authStore = useAuthStore()
     authStore.user = 'id'
     authStore.pass = 'pass'
-    authStore.login()
+    await authStore.login()
     expect(authStore.showError).toBe(true)
     expect(authStore.confirm).toBe(false)
   })
 
-  it('should have an successful login', () => {
+  it('should have an successful login', async () => {
     const authStore = useAuthStore()
     authStore.user = 'abc'
     authStore.pass = 'pass'
-    authStore.login()
+    await authStore.login()
     expect(authStore.showError).toBe(false)
     expect(authStore.confirm).toBe(true)
   })
