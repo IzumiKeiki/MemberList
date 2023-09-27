@@ -6,8 +6,8 @@ import type { RouteLocationNormalized } from 'vue-router'
 const authStore = useAuthStore()
 const router = useRouter()
 
-const submit = () => {
-  authStore.login()
+const submit = async () => {
+  await authStore.login()
   if (authStore.confirm) {
     router.replace('/home')
   }
@@ -36,8 +36,8 @@ router.beforeEach(beforeRouteEnter)
       You can try "abc" for ID and "pass" for Password
     </p>
     <form @submit.prevent="submit">
-      <label for="id">ID :</label>
-      <input id="id" type="text" v-model="authStore.id" />
+      <label for="user">ID :</label>
+      <input id="user" type="text" v-model="authStore.user" />
       <label for="pass">Password :</label>
       <input id="pass" type="password" v-model="authStore.pass" />
       <button type="submit">Confirm</button>

@@ -13,7 +13,7 @@ describe('pinia.cy.ts', () => {
 
   it('should have an unsuccessful login', () => {
     cy.wrap(useAuthStore()).then((store) => {
-      store.id = 'id'
+      store.user = 'id'
       store.pass = 'pass'
       store.login()
       expect(store.showError).to.eq(true)
@@ -23,7 +23,7 @@ describe('pinia.cy.ts', () => {
 
   it('should have an unsuccessful login', () => {
     cy.wrap(useAuthStore()).then((store) => {
-      store.id = 'abc'
+      store.user = 'abc'
       store.pass = 'pass'
       store.login()
       expect(store.showError).to.eq(false)

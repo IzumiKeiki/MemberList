@@ -1,10 +1,17 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
+import { useAuthStore } from './authStore'
 
 export const useDataStore = defineStore('data', {
   state: () => ({
     data: [
-      { id: 0, name: 'abc', skills: 'html, css, js', status: 'active' as 'active' | 'inactive' }
+      {
+        id: 0,
+        name: 'abc',
+        skills: 'html, css, js',
+        status: 'active' as 'active' | 'inactive',
+        userID: 0
+      }
     ],
     newItem: {
       name: '',
@@ -17,13 +24,15 @@ export const useDataStore = defineStore('data', {
       id: 0,
       name: '',
       skills: '',
-      status: 'active' as 'active' | 'inactive'
+      status: 'active' as 'active' | 'inactive',
+      userID: 0
     }
   }),
   actions: {
     async fetchData() {
+      const userID = useAuthStore().id
       try {
-        const response = await axios.get('http://localhost:5001/get')
+        const response = await axios.get(`http://localhost:5001/get/${userID}`)
         console.log('fetchData successfully')
         this.data = response.data || []
       } catch (err) {
@@ -32,10 +41,13 @@ export const useDataStore = defineStore('data', {
     },
 
     async addItem() {
+      const userID = useAuthStore().id
+
       const dataToInsert = {
         name: this.newItem.name,
         skills: this.newItem.skills,
-        status: this.newItem.status
+        status: this.newItem.status,
+        userID: userID
       }
 
       try {
@@ -88,7 +100,7 @@ export const useDataStore = defineStore('data', {
         }
         this.data[this.editedIndex] = { ...this.editedItem }
         this.editedIndex = 0
-        this.editedItem = { id: 0, name: '', skills: '', status: 'active' }
+        this.editedItem = { id: 0, name: '', skills: '', status: 'active', userID: 0 }
       }
       this.isEditing = false
     }

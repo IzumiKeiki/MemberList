@@ -1,8 +1,19 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useDataStore } from '../stores/dataStore'
+import { useAuthStore } from '@/stores/authStore'
+import { useRouter } from 'vue-router'
 
 const dataStore = useDataStore()
+const authStore = useAuthStore()
+const router = useRouter()
+
+const logout = () => {
+  authStore.logout()
+  if (!authStore.confirm) {
+    router.replace('/')
+  }
+}
 
 onMounted(() => {
   dataStore.fetchData()
@@ -11,7 +22,10 @@ onMounted(() => {
 
 <template>
   <main>
-    <h1>Member List</h1>
+    <div class="header">
+      <h1>Member List</h1>
+      <button @click="logout">Logout</button>
+    </div>
 
     <div v-if="!dataStore.isEditing">
       <h2>Add Member</h2>
@@ -129,5 +143,11 @@ tr:hover {
 
 .edit {
   color: hsla(160, 100%, 37%, 1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 300px;
 }
 </style>

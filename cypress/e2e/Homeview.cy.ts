@@ -1,7 +1,7 @@
 describe('Home page', () => {
   beforeEach(() => {
     cy.visit('/')
-    cy.get('#id').type('abc')
+    cy.get('#user').type('abc')
     cy.get('#pass').type('pass')
     cy.get('form').submit()
   })

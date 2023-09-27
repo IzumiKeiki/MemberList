@@ -18,9 +18,9 @@ describe('LoginView', () => {
     })
     console.log('CONFIRM Before button click:', wrapper.vm.authStore.confirm)
 
-    const idInput = wrapper.find('#id')
+    const userInput = wrapper.find('#user')
     const passInput = wrapper.find('#pass')
-    idInput.setValue('abc')
+    userInput.setValue('abc')
     passInput.setValue('pass')
     wrapper.find('form').trigger('submit.prevent')
     console.log('CONFIRM After button click:', wrapper.vm.authStore.confirm)

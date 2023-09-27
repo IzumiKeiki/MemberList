@@ -7,7 +7,7 @@ describe('Login page', () => {
   it('shows error message when the input is invalid', () => {
     cy.visit('/')
 
-    cy.get('#id').type('id')
+    cy.get('#user').type('id')
     cy.get('#pass').type('pass')
 
     cy.get('form').submit()
@@ -17,7 +17,7 @@ describe('Login page', () => {
   it('navigates to the home view after login', () => {
     cy.visit('/')
 
-    cy.get('#id').type('abc')
+    cy.get('#user').type('abc')
     cy.get('#pass').type('pass')
     cy.get('form').submit()
 

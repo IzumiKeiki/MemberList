@@ -38,9 +38,9 @@ describe('LoginView', () => {
     })
     console.log('ERROR Before button click:', wrapper.vm.authStore.showError)
 
-    const idInput = wrapper.find('#id')
+    const userInput = wrapper.find('#user')
     const passInput = wrapper.find('#pass')
-    idInput.setValue('id')
+    userInput.setValue('user')
     passInput.setValue('pass')
     wrapper.find('form').trigger('submit.prevent')
     await wrapper.vm.$nextTick()
